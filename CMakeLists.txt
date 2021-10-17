@@ -1,30 +1,25 @@
-﻿cmake_minimum_required (VERSION 3.14)
+﻿configure_file ("Board.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("clap.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("diamond.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("digger.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("exitButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("fail.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gameBackGround.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gameOver.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gray_stone.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level4.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("menu_picture.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("monster1.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("monster2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("score_gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("start.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("stone_gift.PNG" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("time_gift.PNG" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("wall.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("town.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("winner.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
-project(project)
 
-set (CMAKE_CXX_STANDARD 17)
-set (CMAKE_CXX_STANDARD_REQUIRED ON)
-set (CMAKE_CXX_EXTENSIONS OFF)
-if (MSVC)
-	add_compile_options (/permissive-)
-endif ()
-
-add_executable (project  "")
-
-add_subdirectory (include)
-add_subdirectory (src)
-add_subdirectory (resources)
-
-
-
-set (SFML_STATIC_LIBRARIES TRUE)
-set (SFML_DIR "C:/SFML/SFML-2.5.1/lib/cmake/SFML")
-
-find_package (SFML 2.5 COMPONENTS graphics audio REQUIRED)
-
-set_target_properties (sfml-main sfml-system sfml-window sfml-graphics sfml-audio
-sfml-network PROPERTIES MAP_IMPORTED_CONFIG_RELWITHDEBINFO RELEASE)
-
-target_link_libraries (project sfml-audio sfml-graphics sfml-main)
-
-configure_file (C:/SFML/SFML-2.5.1/bin/openal32.dll ${CMAKE_BINARY_DIR} COPYONLY)
